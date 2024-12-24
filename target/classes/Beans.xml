@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:myApp.properties"/>
+
+    <bean id="cat" class="com.glb.Cat" />
+    <bean id="dog" class="com.glb.Dog" />
+    <bean id="steve" class="com.glb.Person">
+        <property name="name" value="${person.name}"/>
+        <property name="surname" value="${person.surname}"/>
+        <constructor-arg ref="dog"/>
+    </bean>
+
+</beans>
+
